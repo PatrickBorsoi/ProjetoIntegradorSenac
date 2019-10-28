@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ed094f0-56e9-4f4b-9e9c-17eb9194b997" name="Default Changelist" comment="" />
+    <list default="true" id="7ed094f0-56e9-4f4b-9e9c-17eb9194b997" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/senac/service/AcaoUsuarioClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/senac/service/AcaoUsuarioClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/senac/service/AcaoUsusarioClienteOfertaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/senac/service/AcaoUsusarioClienteOfertaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ProjetoIntegrador-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ProjetoIntegrador.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/ProjetoIntegrador.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ProjetoIntegrador.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/ProjetoIntegrador.war.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/senac/domain/Acao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/senac/domain/Acao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2019-09-22T22-00-51_525-jvmRun1.dump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2019-09-22T22-04-08_930-jvmRun1.dump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-br.com.senac.ProjetoIntegradorApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-br.com.senac.ProjetoIntegradorApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/br.com.senac.ProjetoIntegradorApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/br.com.senac.ProjetoIntegradorApplicationTests.txt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +41,7 @@
   <component name="ProjectId" id="1RDRGPd2Bt40DofN1zEZurIECiD" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>

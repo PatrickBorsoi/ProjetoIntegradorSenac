@@ -16,10 +16,10 @@ public class AcaoUsusarioClienteOfertaService {
     @Autowired
     AcaoUsusarioClienteOfertaRepository acaoUsusarioClienteOfertaRepository;
 
-    public AcaoUsuarioCliente ProcuraPorId(Integer id) throws ObjectNotFoundException {
+    public AcaoUsuarioClienteOferta ProcuraPorId(Integer id) throws ObjectNotFoundException {
         Optional<AcaoUsuarioClienteOferta> acaoUsusarioClienteOferta = acaoUsusarioClienteOfertaRepository.findById(id);
 
-        return AcaoUsuarioCliente.orElseThrow(() -> new ObjectNotFoundException("AcaoUsusarioClienteOferta não encontrado. id:" + id));
+        return acaoUsusarioClienteOferta.orElseThrow(() -> new ObjectNotFoundException("AcaoUsusarioClienteOferta não encontrado. id:" + id));
     }
 
     public List<AcaoUsuarioClienteOferta> searchAll(){
@@ -31,7 +31,7 @@ public class AcaoUsusarioClienteOfertaService {
     }
 
     public AcaoUsuarioClienteOferta editar (AcaoUsuarioClienteOferta acaoUsuarioClienteOferta) throws ObjectNotFoundException {
-        AcaoUsuarioCliente acaoUsuarioClienteOfertaAntigo = ProcuraPorId(acaoUsuarioClienteOferta.getId());
+        AcaoUsuarioClienteOferta acaoUsuarioClienteOfertaAntigo = ProcuraPorId(acaoUsuarioClienteOferta.getId());
         acaoUsuarioClienteOfertaAntigo.setDescricao(acaoUsuarioClienteOferta.getDescricao());
         acaoUsuarioClienteOfertaAntigo.setData(acaoUsuarioClienteOferta.getData());
         acaoUsuarioClienteOfertaAntigo.setAcao(acaoUsuarioClienteOferta.getAcao());

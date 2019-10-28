@@ -17,7 +17,7 @@ public class AcaoUsuarioClienteService {
     public AcaoUsuarioCliente ProcuraPorId(Integer id) throws ObjectNotFoundException {
         Optional<AcaoUsuarioCliente> acaoUsuarioCliente = acaoUsusarioClienteRepository.findById(id);
 
-        return AcaoUsuarioCliente.orElseThrow(() -> new ObjectNotFoundException("acaoUsusarioCliente não encontrado. id:" + id));
+        return acaoUsuarioCliente.orElseThrow(() -> new ObjectNotFoundException("acaoUsusarioCliente não encontrado. id:" + id));
     }
 
     public List<AcaoUsuarioCliente> searchAll(){
