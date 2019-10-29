@@ -2,7 +2,13 @@ package br.com.senac.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Produto implements Serializable {
@@ -11,14 +17,21 @@ public class Produto implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "produto_id")
 	private Integer Id;
 	
+	@Column(name = "produto_nome")
 	private String nome;
+	
+	@Column(name = "produto_descricao")
 	private String descricao;
+	
+	@Column(name = "produto_status")
 	private String status;
 	
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne
 	@JoinColumn(name = "nivel_instrucao_id")
+	
 	private NivelInstrucao nivelInstrucao;
 	
 	

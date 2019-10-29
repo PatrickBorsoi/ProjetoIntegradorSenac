@@ -2,6 +2,7 @@ package br.com.senac.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,9 +15,13 @@ public class NivelInstrucao implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "nivel_instrucao_id")
 	private Integer Id;
 	
+	@Column(name = "nivel_instrucao_descricao")
 	private String descricao;
+	
+	@Column(name = "nivel_instrucao_status")
 	private String status;
 	
 	public Integer getId() {
