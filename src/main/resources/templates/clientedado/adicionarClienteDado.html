@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width" />
+<title>ClienteDado</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+      <div class="container">
+        <div class="panel-heading" align="center">
+        <strong>Adicionar dados do cliente</strong>
+        </div>
+        
+        <div class="panel-body">
+        <form  class="form-horizotal" th:object="${clientedado}" th:action="@{/clientedado/salvar}" method="POST" style="margin:10px">
+        	<div class="form-group">
+        	<fieldset>
+        	
+        	   	<div class="form-group row">
+        	   		<label>Valor</label>
+        	   		<input type="text" class="form-control input-sm" th:field="*{cliente_dado_valor}" autofocus="autofocus" placeholder="Informe o valor" maxlength="50" />
+       	    	</div>
+       	    	
+       	    	<div class="form-group row">
+        	   		<label>Status</label>
+        	   		<input type="text" class="form-control input-sm" th:field="*{cliente_dado_status}" autofocus="autofocus" placeholder="Informe o status" maxlength="50" />
+       	    	</div>
+       	    	
+    	    	<div class="form-group row">
+        	      <label>Cliente</label>
+        	      <select class="form-control" th:field="*{cliente}">
+        	      		<option value="">Selecione o cliente</option>
+        	      		<option th:each="cliente : ${clientes}" th:value="${cliente.cliente_id}" th:text="${cliente.cliente_nome}"></option>
+        	      </select>
+       	       	</div>
+       	       	
+       	       	<div class="form-group row">
+        	      <label>Tipo do dado</label>
+        	      <select class="form-control" th:field="*{dadotipo}">
+        	      		<option value="">Selecione o tipo</option>
+        	      		<option th:each="dadotipo : ${dadotipos}" th:value="${dadotipo.dado_tipo_id}" th:text="${dadotipo.dado_tipo_descricao}"></option>
+        	      </select>
+       	       </div>
+        	            	
+           	</fieldset>
+        	
+        </div>
+         <div alien="center">
+            <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+       		<a th:href="@{/clientedado/listarClienteDado}" class="btn btn-sm btn-default">Cancelar</a>
+         </div>
+       </form>
+     </div>
+ </div>
+</body>
+</html>

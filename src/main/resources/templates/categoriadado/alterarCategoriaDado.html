@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset-8"/>
+<meta name="viewport" content="width=device-width" />
+<title>Alterar CategoriaDado</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+      <div class="container">
+        <div class="panel-heading" align="center">
+        <strong>Alterar categoria de dado</strong>
+         </div>
+         
+         <div class="panel-body">
+           <form class="form-horizontal" th:object="${categoriadado}" th:action="@{/categoriadado/alterarCategoriaDado}" method="POST" style="margin: 10px">
+             <div class="form-group">
+              
+               	<fieldset>
+                  <div class="form-group row">                       
+                        <input type="hidden" class="form-control input-sm" id="categoria_dado_id" th:field="*{categoria_dado_id}"/>
+                  </div>
+                  
+                   <div class="form-group row" >
+	                   <label>Descricao</label>
+	                   <input type="text" class="form-control input-sm" id="categoria_dado_descricao" th:field="*{categoria_dado_descricao}" autofocus="autofocus" placeholder="Informe a descricao" maxlength="50" />
+                   </div>
+                   
+                   <div class="form-group row">
+	        	   		<label>Status</label>
+	        	   		<input type="text" class="form-control input-sm" id="categoria_dado_status" th:field="*{categoria_dado_status}" autofocus="autofocus" placeholder="Informe o status" maxlength="50" />
+	       	    	</div>
+                         
+   				</fieldset>
+            </div>
+           <div align="center">
+        <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+        <a th:href="@{/categoriadado/listarCategoriaDado/}" class="btn btn-sm btn-default">Cancelar</a>
+      </div>
+      </form>
+      </div>
+  </div>
+</body>
+</html>

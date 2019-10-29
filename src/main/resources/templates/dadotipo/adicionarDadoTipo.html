@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width" />
+<title>DadoTipo</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+      <div class="container">
+        <div class="panel-heading" align="center">
+        <strong>Adicionar tipo de dado</strong>
+        </div>
+        
+        <div class="panel-body">
+        <form  class="form-horizotal" th:object="${dadotipo}" th:action="@{/dadotipo/salvar}" method="POST" style="margin:10px">
+        	<div class="form-group">
+        	<fieldset>
+        	
+        	   	<div class="form-group row">
+        	   		<label>Descricao</label>
+        	   		<input type="text" class="form-control input-sm" th:field="*{dado_tipo_descricao}" autofocus="autofocus" placeholder="Informe a descricao" maxlength="50" />
+       	    	</div>
+       	    	
+       	    	<div class="form-group row">
+        	   		<label>Status</label>
+        	   		<input type="text" class="form-control input-sm" th:field="*{dado_tipo_status}" autofocus="autofocus" placeholder="Informe o status" maxlength="50" />
+       	    	</div>
+       	    	
+       	    	<div class="form-group row">
+        	   		<label>Obrigatorio</label>
+        	   		<input type="text" class="form-control input-sm" th:field="*{dado_tipo_obrigatorio}" autofocus="autofocus" placeholder="Informe se é obrigatorio" maxlength="50" />
+       	    	</div>
+       	    	
+       	    	<div class="form-group row">
+        	   		<label>Padrao</label>
+        	   		<input type="text" class="form-control input-sm" th:field="*{dado_tipo_padrao}" autofocus="autofocus" placeholder="Informe o padrao" maxlength="50" />
+       	    	</div>
+       	    	
+       	    	<div class="form-group row">
+        	   		<label>Mascara</label>
+        	   		<input type="text" class="form-control input-sm" th:field="*{dado_tipo_mascara}" autofocus="autofocus" placeholder="Informe a mascara" maxlength="50" />
+       	    	</div>
+       	    	
+       	    	<div class="form-group row">
+        	      <label>Categoria</label>
+        	      <select class="form-control" th:field="*{categoriadado}">
+        	      		<option value="">Selecione a categoria</option>
+        	      		<option th:each="categoriadado : ${categoriadados}" th:value="${categoriadado.categoria_dado_id}" th:text="${categoriadado.categoria_dado_descricao}"></option>
+        	      </select>
+       	       </div>
+        	            	
+           	</fieldset>
+        	
+        </div>
+         <div alien="center">
+            <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+       		<a th:href="@{/dadotipo/listarDadoTipo}" class="btn btn-sm btn-default">Cancelar</a>
+         </div>
+       </form>
+     </div>
+ </div>
+</body>
+</html>
