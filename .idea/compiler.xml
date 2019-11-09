@@ -6,16 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ProjetoIntegrador" />
+        <module name="ProjetoIntegradorSenac" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ProjetoIntegrador" target="1.8" />
+      <module name="ProjetoIntegradorSenac" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ProjetoIntegrador" options="-parameters" />
+      <module name="ProjetoIntegradorSenac" options="-parameters" />
     </option>
   </component>
 </project>
