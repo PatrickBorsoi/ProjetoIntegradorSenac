@@ -1,143 +1,124 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</head>
-	<style>
-	
-	#principal {
-	background-color:#080A36;
-	color: white;
-	width: 1000px;
-	height: 550px;
-	margin-right: auto;
-    margin-left:auto;
-}
+<html lang="en" xmlns:th="">
+<th:block th:insert="fragments/head.html :: head"></th:block>
+<body id="page-top">
+<!-- Page Wrapper -->
+<div id="wrapper">
 
-#teste {
-	width: 850px;
-	margin-right: auto;
-    margin-left:auto;
+    <!-- Sidebar -->
+    <th:block th:insert="fragments/sidebar.html :: aside"></th:block>
+    <!-- End of Sidebar -->
 
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
 
-}
-	section{
-	background-color: #0E1148;
-	color: white;
-	width: 370px;
-	height: 100px;
-	margin: 20px;
-	float: right;
-	border-radius: 10px;
-	border:2px white solid;
+        <!-- Main Content -->
+        <div id="content">
 
-	}
-	h1{
-    text-align: center;
-    }
+            <!-- Topbar -->
+            <th:block th:insert="fragments/navbar.html :: nav"></th:block>
+            <!-- End of Topbar -->
 
-    .titulo {
-    	width: 150px;
-    	float: left;
-    }
-
-    .oferta {
-    	width: 150px;
-    	float: right;
-    }
-
-    .descr {
-    	width: 330px;
-    	margin: 35px 0px 0px 50px;
-    }
-	</style>
-<body>
-    <div id="principal">
-        <header>
-            <h1>OFERTAS
-            <style text-fonte:></style>
-            </h1>        
-        </header>
-        <div id="teste">
-        <div id="a1">
-            <section>
-                <p>
-                    <div class="titulo"> Nome da Oferta </div>
-                    <div class="oferta">ID Oferta </div>
-                    <div class="descr"><br> Descrição Oferta
-                    <tbody>
-                    <tr th:each="oferta : ${ofertas}">
-                    <td th:text="${oferta.id}"></td>
-                    </tr>
-                    </tbody>
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">Tabela Oferta</h1>
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Ofertas</h6>
                     </div>
-                    
-                </p>
-            </section>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>DESCRIÇÃO</th>
+                                    <th>PRODUTO DA OFERTA</th>
+                                    <th>PREÇO</th>
+                                    <th>STATUS</th>
+                                    <th>DATA INICIO</th>
+                                    <th>DATA FINAL</th>
+                                </tr>
+
+                                <tbody>
+                                <tr th:each="oferta : ${ofertas}">
+                                    <td th:text="${oferta.id}"></td>
+                                    <td th:text="${oferta.descricao}"></td>
+                                    <td th:text="${oferta.produto.nome}">
+                                    <td th:text="${oferta.preco}"></td>
+                                    <td th:text="${oferta.status}"></td>
+                                    <td th:text="${oferta.dataInicio}"></td>
+                                    <td th:text="${oferta.dataFinal}"></td>
+                                </tr>
+                                <div class="btn-group pull-right">
+                                    <a class="btn btn-sm btn-warning"
+                                       th:href="@{/oferta/alterar/{id}(id=${oferta.id})}">Alterar</a>
+                                </div>
+                                </tbody>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-sm btn-success" th:href="@{/oferta/cadastrar}">CADASTRAR NOVA OFERTA</a>
+            </div>
         </div>
-
-        <div id="a2">
-            <section>
-                <p>
-                   <div class="titulo"> Nome da Oferta </div>
-                    <div class="oferta">ID Oferta </div>
-                    <div class="descr"><br> Descrição Oferta </div>
-                </p>
-
-            </section>
-        </div>
-
-        <div id="a3">
-           <section>
-                <p>
-                    <div class="titulo"> Nome da Oferta </div>
-                    <div class="oferta">ID Oferta </div>
-                    <div class="descr"><br> Descrição Oferta </div>
-                </p>
-            </section>
-        </div>
-
-        <div id="a4">
-            <section>
-                <p>
-                    <div class="titulo"> Nome da Oferta </div>
-                    <div class="oferta">ID Oferta </div>
-                    <div class="descr"><br> Descrição Oferta </div>
-                </p>
-                
-            </section>
-        </div>
-
-        <div id="a5">
-            <section>
-                <p>
-                    <div class="titulo"> Nome da Oferta </div>
-                    <div class="oferta">ID Oferta </div>
-                    <div class="descr"><br> Descrição Oferta </div>
-                </p>
-                
-            </section>
-        </div>
-
-        <div id="a6">
-            <section>
-                <p>
-                    <div class="titulo"> Nome da Oferta </div>
-                    <div class="oferta">ID Oferta </div>
-                    <div class="descr"><br> Descrição Oferta </div>
-                </article>
-                </p>
-        </div>
-
-    </section></div>
-
-        <footer></footer>
     </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<th:block th:insert="fragments/footer.html :: footer"></th:block>
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<th:block th:insert="fragments/footer-scripts.html :: scripts"></th:block>
+
 </body>
+
 </html>

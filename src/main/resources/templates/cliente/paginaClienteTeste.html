@@ -22,51 +22,46 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For
-                    more information about DataTables, please visit the <a target="_blank"
-                                                                           href="https://datatables.net">official
-                        DataTables documentation</a>.</p>
-
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Tabela Cliente</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>ID</th>
+                                    <th>NOME</th>
+                                    <th>SOBRENOME</th>
+                                    <th>E-MAIL</th>
+                                    <th>CPF</th>
+                                    <th>STATUS</th>
                                 </tr>
-                                </thead>
-                                <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                                </tfoot>
                                 <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
+                                <tr th:each="cliente : ${clientes}">
+                                    <td th:text="${cliente.cliente_id}"></td>
+                                    <td th:text="${cliente.cliente_nome}"></td>
+                                    <td th:text="${cliente.cliente_sobrenome}"></td>
+                                    <td th:text="${cliente.cliente_email}"></td>
+                                    <td th:text="${cliente.cliente_cpf}"></td>
+                                    <td th:text="${cliente.cliente_status}"></td>
+                                    <td>
+                                        <div class="btn-group pull-right">
+                                            <a class="btn btn-sm btn-outline-primary"
+                                               th:href="@{/cliente/alterarCliente/{id}(id=${cliente.cliente_id})}">Alterar</a>
+                                            <a class="delete btn btn-sm btn-outline-danger"
+                                               th:href="@{/cliente/excluir/{id}(id=${cliente.cliente_id})}">Excluir</a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 </tbody>
+                                </thead>
                             </table>
+                        </div>
+                        <div class="panel-footer">
+                            <a class="btn btn-sm btn-outline-success " th:href="@{/cliente/adicionarCliente/}">Cadastrar novo cliente</a>
                         </div>
                     </div>
                 </div>

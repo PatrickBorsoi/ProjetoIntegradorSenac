@@ -32,38 +32,44 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Alterar Cliente</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" th:object="${cliente}" th:action="@{/cliente/alterarCliente}" method="POST" >
+
+                                        <div class="form-group row">
+                                            <input type="hidden" class="form-control input-sm" id="cliente_id" th:field="*{cliente_id}"/>
+                                        </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="text" class="form-control form-control-user" id="primeiroNome"
+                                                <label>Nome</label>
+                                                <input type="text" th:field="*{cliente_nome}" class="form-control form-control-user" id="primeiroNome"
                                                        placeholder="Primeiro Nome">
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control form-control-user" id="sobreNome"
+                                                <label>SobreNome</label>
+                                                <input type="text" class="form-control form-control-user" id="sobreNome" th:field="*{cliente_sobrenome}"
                                                        placeholder="Sobrenome">
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label>E-mail</label>
                                             <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                                   placeholder="Email Address">
+                                                   th:field="*{cliente_email}" placeholder="Email Address">
                                         </div>
                                         <div class="form-group row ">
                                             <div class="form-group col-md-6">
-                                                <label for="inputCPF">CPF</label>
-                                                <input type="text" class="form-control cpf-mask" id="cpf"
+                                                <label>CPF</label>
+                                                <input type="text" class="form-control cpf-mask" id="cpf" th:field="*{cliente_cpf}"
                                                        placeholder="EX: 000.000.000-00">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputStatus">Status</label>
-                                                <select id="inputStatus" class="form-control">
-                                                    <option selected>Status</option>
-                                                    <option>Ativo</option>
-                                                    <option>Desativo</option>
+                                                <select id="inputStatus" class="form-control" th:field="*{cliente_status}">
+                                                    <option th:value="1">Ativo</option>
+                                                    <option th:value="0">Desativo</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <a href="" class="btn btn-primary btn-user btn-block">
-                                            Alterar Cliente
+                                        <button th:type="submit" class="btn btn-primary btn-user btn-block">Cadastrar Oferta</button>
+                                        <a th:href="@{/cliente/listarCliente}" class="btn btn-danger btn-user btn-block">Cancelar</a>
                                         </a>
                                     </form>
                                 </div>

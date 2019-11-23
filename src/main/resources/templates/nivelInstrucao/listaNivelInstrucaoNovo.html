@@ -25,7 +25,7 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Tabela Oferta</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Tabela NivelInstrucao</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -34,27 +34,20 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>DESCRIÇÃO</th>
-                                    <th>PRODUTO DA OFERTA</th>
-                                    <th>PREÇO</th>
                                     <th>STATUS</th>
-                                    <th>DATA INICIO</th>
-                                    <th>DATA FINAL</th>
                                 </tr>
+                                </thead>
                                 <tbody>
-                                <tr th:each="oferta : ${ofertas}">
-                                    <td th:text="${oferta.id}"></td>
-                                    <td th:text="${oferta.descricao}"></td>
-                                    <td th:text="${oferta.produto.nome}">
-                                    <td th:text="${oferta.preco}"></td>
-                                    <td th:text="${oferta.status}"></td>
-                                    <td th:text="${oferta.dataInicio}"></td>
-                                    <td th:text="${oferta.dataFinal}"></td>
+                                <tr th:each="nivelInstrucao : ${nivelInstrucoes}">
+                                    <td th:text="${nivelInstrucao.id}"></td>
+                                    <td th:text="${nivelInstrucao.descricao}"></td>
+                                    <td th:text="${nivelInstrucao.status}"></td>
                                     <td>
                                         <div class="btn-group pull-right">
                                             <a class="btn btn-sm btn-outline-warning"
-                                               th:href="@{/oferta/alterarOferta/{id}(id=${oferta.id})}">Alterar</a>
+                                               th:href="@{/nivelInstrucao/alterar/{id}(id=${nivelInstrucao.id})}">Alterar</a>
                                             <a class="delete btn btn-sm btn-outline-danger"
-                                               th:href="@{/oferta/deletar/{id}(id=${oferta.id})}">Excluir</a>
+                                               th:href="@{/nivelInstrucao/deletar/{id}(id=${nivelInstrucao.id})}">Excluir</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -63,8 +56,8 @@
                             </table>
                         </div>
                         <div class="panel-footer">
-                            <a class="btn btn-sm btn-outline-success " th:href="@{/oferta/cadastrar}">Cadastrar nova
-                                oferta</a>
+                            <a class="btn btn-sm btn-outline-success " th:href="@{/nivelInstrucao/cadastrar}">Cadastrar
+                                novo nivelInstrucao</a>
                         </div>
                     </div>
                 </div>

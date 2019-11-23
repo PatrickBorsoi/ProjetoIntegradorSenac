@@ -20,31 +20,30 @@ public class NivelInstrucao implements Serializable {
 	
 	@Column(name = "nivel_instrucao_descricao")
 	private String descricao;
-	
-	@Column(name = "nivel_instrucao_status")
-	private String status;
-	
+
+	private boolean status;
+
 	public Integer getId() {
 		return Id;
 	}
+
 	public void setId(Integer id) {
 		Id = id;
 	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public String getStatus() {
+
+	public boolean getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	
-	
-	
-	
-
 }

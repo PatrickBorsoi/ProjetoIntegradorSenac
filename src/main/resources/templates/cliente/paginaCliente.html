@@ -31,10 +31,12 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                      	<td th:text="${cliente.cliente_id}"></td>
                      	<td th:text="${cliente.cliente_nome}"></td>
                    		<td th:text="${cliente.cliente_sobrenome}"></td>
+                        <td th:text="${cliente.cliente_email}"></td>
+                        <td th:text="${cliente.cliente_cpf}"></td>
 	                    <td>                   
 		                     <div class="btn-group pull-right">
-		                        <a class="btn btn-sm btn-primary" th:href="@{/cliente/alterarCliente/{id}(id=${cliente.cliente_id})}">Alterar</a>
-		                        <a class="delete btn btn-sm btn-danger" th:href="@{/cliente/excluir/{id}(id=${cliente.cliente_id})}">Excluir</a>
+		                        <a class="btn btn-sm btn-outline-primary" th:href="@{/cliente/alterarCliente/{id}(id=${cliente.cliente_id})}">Alterar</a>
+		                        <a class="delete btn btn-sm btn-outline-danger" th:href="@{/cliente/excluir/{id}(id=${cliente.cliente_id})}">Excluir</a>
 		                     </div>
 	              		 </td>
        				</tr>

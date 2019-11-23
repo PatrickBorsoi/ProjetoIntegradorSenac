@@ -47,7 +47,9 @@
 								<select class="form-control" th:field="*{nivelInstrucao}">
 								<option value="">Selectione o Nivel de Instrucao</option>
 								<option th:each="nivelInstrucao : ${nivelInstrucoes}" th:value="${nivelInstrucao.id}" th:text="${nivelInstrucao.id}"></option>								
-								</select>						
+								</select>
+
+
 						</div>
 					</fieldset>
 				</div>

@@ -25,7 +25,7 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Tabela Oferta</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Tabela Produtos</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -33,28 +33,24 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>NOME</th>
                                     <th>DESCRIÇÃO</th>
-                                    <th>PRODUTO DA OFERTA</th>
-                                    <th>PREÇO</th>
                                     <th>STATUS</th>
-                                    <th>DATA INICIO</th>
-                                    <th>DATA FINAL</th>
+                                    <th>NIVEL DE INSTRUCAO</th>
                                 </tr>
                                 <tbody>
-                                <tr th:each="oferta : ${ofertas}">
-                                    <td th:text="${oferta.id}"></td>
-                                    <td th:text="${oferta.descricao}"></td>
-                                    <td th:text="${oferta.produto.nome}">
-                                    <td th:text="${oferta.preco}"></td>
-                                    <td th:text="${oferta.status}"></td>
-                                    <td th:text="${oferta.dataInicio}"></td>
-                                    <td th:text="${oferta.dataFinal}"></td>
+                                <tr th:each="produto : ${produtos}">
+                                    <td th:text="${produto.id}"></td>
+                                    <td th:text="${produto.nome}"></td>
+                                    <td th:text="${produto.descricao}"></td>
+                                    <td th:text="${produto.status}"></td>
+                                    <td th:text="${produto.nivelInstrucao.id}"></td>
                                     <td>
                                         <div class="btn-group pull-right">
-                                            <a class="btn btn-sm btn-outline-warning"
-                                               th:href="@{/oferta/alterarOferta/{id}(id=${oferta.id})}">Alterar</a>
+                                            <a class="btn btn-sm btn-outline-primary"
+                                               th:href="@{/produto/alterar/{idProduto}(idProduto=${produto.id})}">Alterar</a>
                                             <a class="delete btn btn-sm btn-outline-danger"
-                                               th:href="@{/oferta/deletar/{id}(id=${oferta.id})}">Excluir</a>
+                                               th:href="@{/produto/deletar/{idProduto}(idProduto=${produto.id})}">Excluir</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -63,8 +59,10 @@
                             </table>
                         </div>
                         <div class="panel-footer">
-                            <a class="btn btn-sm btn-outline-success " th:href="@{/oferta/cadastrar}">Cadastrar nova
-                                oferta</a>
+                            <a class="btn btn-sm btn-outline-success" th:href="@{/produto/cadastrar}">Cadastrar Novo
+                                Produto</a>
+                            <a class="btn btn-sm btn-outline-success" th:href="@{/nivelInstrucao/cadastrar}">Cadastrar
+                                Novo Nivel Instrucao</a>
                         </div>
                     </div>
                 </div>
@@ -76,9 +74,9 @@
 </div>
 <!-- End of Main Content -->
 
-<!-- Footer -->
+<!-- Footer
 <th:block th:insert="fragments/footer.html :: footer"></th:block>
-<!-- End of Footer -->
+ End of Footer -->
 
 </div>
 <!-- End of Content Wrapper -->
@@ -92,25 +90,6 @@
 </a>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Bootstrap core JavaScript-->
 <th:block th:insert="fragments/footer-scripts.html :: scripts"></th:block>
 

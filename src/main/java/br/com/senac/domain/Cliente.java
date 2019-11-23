@@ -79,15 +79,15 @@ public class Cliente implements Serializable{
 		this.cliente_email = cliente_email;
 	}
 
-	public String getCliente_status() {
+	public boolean getCliente_status() {
 		return cliente_status;
 	}
 
-	public void setCliente_status(String cliente_status) {
+	public void setCliente_status(boolean cliente_status) {
 		this.cliente_status = cliente_status;
 	}
 
 	private String cliente_email;
 	
-	private String cliente_status;
+	private boolean cliente_status;
 }

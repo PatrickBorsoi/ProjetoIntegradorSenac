@@ -30,40 +30,42 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Cadastrar Cliente!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Cadastrar Cliente</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" th:object="${cliente}" th:action="@{/cliente/salvar}" method="POST" >
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="text" class="form-control form-control-user" id="primeiroNome"
+                                                <label>Nome</label>
+                                                <input type="text" th:field="*{cliente_nome}" class="form-control form-control-user" id="primeiroNome"
                                                        placeholder="Primeiro Nome">
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control form-control-user" id="sobreNome"
+                                                <label>SobreNome</label>
+                                                <input type="text" class="form-control form-control-user" id="sobreNome" th:field="*{cliente_sobrenome}"
                                                        placeholder="Sobrenome">
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label>E-mail</label>
                                             <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                                   placeholder="Email Address">
+                                                   th:field="*{cliente_email}" placeholder="Email Address">
                                         </div>
                                         <div class="form-group row ">
                                             <div class="form-group col-md-6">
-                                                <label for="inputCPF">CPF</label>
-                                                <input type="text" class="form-control cpf-mask" id="cpf"
+                                                <label>CPF</label>
+                                                <input type="text" class="form-control cpf-mask" id="cpf" th:field="*{cliente_cpf}"
                                                        placeholder="EX: 000.000.000-00">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputStatus">Status</label>
-                                                <select id="inputStatus" class="form-control">
-                                                    <option selected>Status</option>
-                                                    <option>Ativo</option>
-                                                    <option>Desativo</option>
+                                                <select id="inputStatus" class="form-control" th:field="*{cliente_status}">
+                                                    <option th:value="1">Ativo</option>
+                                                    <option th:value="0">Desativo</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <a href="../Paginas/ClienteLista.html" class="btn btn-primary btn-user btn-block">
-                                            Cadastrar Cliente
+                                        <button th:type="submit" class="btn btn-primary btn-user btn-block">Cadastrar Cliente</button>
+                                        <a th:href="@{/cliente/listarCliente}" class="btn btn-danger btn-user btn-block">Cancelar</a>
                                         </a>
                                     </form>
                                 </div>

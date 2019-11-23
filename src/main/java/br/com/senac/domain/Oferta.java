@@ -17,32 +17,34 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
-public class Oferta implements Serializable{
+public class Oferta implements Serializable {
 
-	private static final long serialVersionUID = -6709999500452703504L;
+    private static final long serialVersionUID = -6709999500452703504L;
 
-	
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	
-	
-	private String descricao;
-	
-	private BigDecimal preco;
-	
-	@DateTimeFormat(pattern="dd/MM/yyyy", iso=ISO.DATE)
-	private LocalDate dataInicio;
-	
-	@DateTimeFormat(pattern="dd/MM/yyyy", iso=ISO.DATE)
-	private LocalDate dataFinal;
-	
-	private boolean status;
-	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn( name = "produto_id")
-	private Produto produto;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+
+    private String descricao;
+
+    private BigDecimal preco;
+
+    //@DateTimeFormat(pattern="dd/MM/yyyy", iso=ISO.DATE)
+    //private LocalDate dataInicio;
+    private String dataInicio;
+
+    //@DateTimeFormat(pattern="dd/MM/yyyy", iso=ISO.DATE)
+    //private LocalDate dataFinal;
+
+    private String dataFinal;
+
+    private boolean status;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "produto_id")
+    private Produto produto;
 
 	public Integer getId() {
 		return id;
@@ -68,19 +70,19 @@ public class Oferta implements Serializable{
 		this.preco = preco;
 	}
 
-	public LocalDate getDataInicio() {
+	public String getDataInicio() {
 		return dataInicio;
 	}
 
-	public void setDataInicio(LocalDate dataInicio) {
+	public void setDataInicio(String dataInicio) {
 		this.dataInicio = dataInicio;
 	}
 
-	public LocalDate getDataFinal() {
+	public String getDataFinal() {
 		return dataFinal;
 	}
 
-	public void setDataFinal(LocalDate dataFinal) {
+	public void setDataFinal(String dataFinal) {
 		this.dataFinal = dataFinal;
 	}
 
@@ -99,7 +101,4 @@ public class Oferta implements Serializable{
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
-	
-
-
 }

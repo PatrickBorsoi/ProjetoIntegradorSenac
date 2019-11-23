@@ -27,14 +27,14 @@ public class ProdutoController {
 	
 	@GetMapping("/listar")
 	public ModelAndView listarProdutos() {
-		ModelAndView mv = new ModelAndView("produto/listaProduto");
+		ModelAndView mv = new ModelAndView("produto/listaProdutoNovo");
 		mv.addObject("produtos", produtoService.searchAll());
 		return mv;
 	}
 	
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrarproduto() {
-		ModelAndView mv = new ModelAndView("produto/cadastraProduto");
+		ModelAndView mv = new ModelAndView("produto/cadastraProdutoNovo");
 		mv.addObject("nivelInstrucoes", nivelService.searchAll());
 		mv.addObject("produto", new Produto());
 		return mv;
