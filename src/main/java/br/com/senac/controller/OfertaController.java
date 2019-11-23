@@ -29,14 +29,14 @@ public class OfertaController {
 	
 	@GetMapping("/listar")
 	public ModelAndView listaTodasOfertas() {
-		ModelAndView mv = new ModelAndView("oferta/paginaListaOfertas");
+		ModelAndView mv = new ModelAndView("oferta/paginaOfertaTeste");
 		mv.addObject("ofertas", ofertaService.buscarTodasOfertas());
 		return mv;
 	}
 	
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrarOferta() {
-		ModelAndView mv = new ModelAndView("oferta/cadastraOferta");
+		ModelAndView mv = new ModelAndView("oferta/adicionarOfertaTeste");
 		mv.addObject("produtos", produtoService.searchAll());
 		mv.addObject("oferta", new Oferta());
 		return mv;

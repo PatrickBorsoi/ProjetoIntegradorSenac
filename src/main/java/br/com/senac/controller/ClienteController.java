@@ -21,14 +21,14 @@ public class ClienteController {
 	
 	@GetMapping("/listarCliente")
 	public ModelAndView listarCliente() {
-		ModelAndView mv = new ModelAndView("cliente/");
+		ModelAndView mv = new ModelAndView("cliente/paginaClienteTeste");
 		mv.addObject("clientes", clienteService.listarCliente());
 		return mv;
 	}
 	
 	@GetMapping("/adicionarCliente")
 	public ModelAndView cadastrar() {
-		ModelAndView mv = new ModelAndView("cliente/adicionarCliente");
+		ModelAndView mv = new ModelAndView("cliente/adicionarClienteTeste");
 		mv.addObject("cliente", new Cliente());
 		
 		return mv;
@@ -48,7 +48,7 @@ public class ClienteController {
 	
 	@GetMapping("alterarCliente/{id}")
 	public ModelAndView alterar(@PathVariable("id") Integer id) throws ObjectNotFoundException{
-		ModelAndView mv = new ModelAndView("cliente/alterarCliente");
+		ModelAndView mv = new ModelAndView("cliente/alterarClienteTeste");
 		mv.addObject("cliente", clienteService.buscar(id));
 		
 		return mv;
