@@ -32,8 +32,12 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Cadastrar Oferta!</h1>
                                     </div>
-                                    <form class="user" th:method="POST" th:object="${oferta}" th:action="@{/oferta/salvar}">
+                                    <form class="user" th:method="POST" th:object="${oferta}" th:action="@{/oferta/alterar}">
                                         <div class="form-group row">
+                                            <div class="form-group row">
+                                                <input type="hidden" class="form-control input-sm" id="id" th:field="*{id}"/>
+                                            </div>
+
                                             <div class="form-group col-md-6">
                                                 <label>Data Inicio</label>
                                                 <input class="form-control" th:field="*{dataInicio}" type="date" value="dd-MM-yyyy">
@@ -68,7 +72,7 @@
                                                 <textarea class="form-control" th:field="*{descricao}" id="descricao" rows="3"></textarea>
                                             </div>
                                         </div>
-                                        <button th:type="submit" class="btn btn-primary btn-user btn-block">Cadastrar Oferta</button>
+                                        <button th:type="submit" class="btn btn-warning btn-user btn-block">Alterar Oferta</button>
                                         <a th:href="@{/oferta/listar}" class="btn btn-danger btn-user btn-block">Cancelar</a>
                                         </button>
                                     </form>

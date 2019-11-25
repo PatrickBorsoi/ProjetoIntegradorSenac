@@ -64,8 +64,8 @@ public class Init implements
         oferta1.setProduto(produto1);
         oferta1.setPreco(new BigDecimal("2.0"));
         oferta1.setStatus(true);
-        oferta1.setDataInicio("20/02/2019");
-        oferta1.setDataFinal("22/02/2019");
+        oferta1.setDataInicio("2019-02-20");
+        oferta1.setDataFinal("2019-02-22");
         ofertaService.salvar(oferta1);
 
 

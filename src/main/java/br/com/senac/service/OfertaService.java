@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import br.com.senac.domain.Oferta;
 import br.com.senac.repository.OfertaRepository;
 import javassist.tools.rmi.ObjectNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class OfertaService {
 	
 	@Autowired

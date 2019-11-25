@@ -48,9 +48,9 @@ public class OfertaController {
 		return new ModelAndView("redirect:/oferta/listar");
 	}
 
-	@GetMapping("/alterar/{id}")
+	@GetMapping("/alterarOferta/{id}")
 	public ModelAndView alterarOferta(@PathVariable("id") Integer idOferta) throws ObjectNotFoundException{
-		ModelAndView mv = new ModelAndView("oferta/alterarOferta");
+		ModelAndView mv = new ModelAndView("oferta/alteraOfertaTeste");
 		mv.addObject("oferta", ofertaService.buscarPorID(idOferta));
 		mv.addObject("produtos", produtoService.searchAll());
 		return mv;
