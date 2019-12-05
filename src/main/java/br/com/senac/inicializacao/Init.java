@@ -7,6 +7,8 @@ import java.util.List;
 
 import br.com.senac.domain.Oferta;
 import br.com.senac.domain.Produto;
+import br.com.senac.domain.Usuario;
+import br.com.senac.repository.UsuarioRepoository;
 import br.com.senac.service.OfertaService;
 import br.com.senac.service.ProdutoService;
 
@@ -15,6 +17,7 @@ import
         org.springframework.context.ApplicationListener;
 import
         org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import
         org.springframework.stereotype.Component;
 
@@ -23,8 +26,7 @@ import
         br.com.senac.service.NivelInstrucaoService;
 
 @Component
-public class Init implements
-        ApplicationListener<ContextRefreshedEvent> {
+public class Init implements ApplicationListener<ContextRefreshedEvent>{
 
     @Autowired
     NivelInstrucaoService nivelService;
@@ -34,6 +36,14 @@ public class Init implements
 
     @Autowired
     OfertaService ofertaService;
+
+    @Autowired
+    UsuarioRepoository usuarioRepoository;
+
+    @Autowired
+    RoleRepository roleRepository;
+
+
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
@@ -68,6 +78,11 @@ public class Init implements
         oferta1.setDataFinal("2019-02-22");
         ofertaService.salvar(oferta1);
 
+        Usuario usuario = new Usuario();
+        usuario.setLogin("admin");
+        usuario.setNome("Patrick");
+        usuario.setSenha(new BCryptPasswordEncoder().encode("1234"));
+        usuarioRepoository.save(usuario);
 
         List<NivelInstrucao> listaNivelInstrucoes = nivelService.searchAll();
 
